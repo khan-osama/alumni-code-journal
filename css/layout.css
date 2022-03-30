@@ -18,6 +18,15 @@
   width: 100%;
 }
 
+.title {
+  margin-top: 1.5rem;
+}
+
+.submit {
+  display: flex;
+  justify-content: right;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;
@@ -30,5 +39,9 @@
 
   .column-half {
     width: 50%;
+  }
+
+  .title {
+    margin-top: 0;
   }
 }
