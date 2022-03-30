@@ -1,5 +1,6 @@
 body {
   background-color: rgb(241, 241, 241);
+  font-family: "Proza Libre", sans-serif;
 }
 
 header {
@@ -9,14 +10,12 @@ header {
 
 h1,
 label {
-  font-family: "Proza Libre", sans-serif;
   font-weight: bold;
 }
 
 h2,
 p,
 #submit {
-  font-family: "Proza Libre", sans-serif;
   font-weight: 400;
 }
 
@@ -54,4 +53,5 @@ label {
   border-radius: 4px;
   padding: 5px 10px;
   border: none;
+  margin-bottom: 2rem;
 }

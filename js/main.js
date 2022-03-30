@@ -15,7 +15,7 @@ entryForm.addEventListener('submit', function (event) {
     title: entryForm.elements.title.value,
     photoURL: entryForm.elements.url.value,
     notes: entryForm.elements.note.value,
-    nextEntryId: data.nextEntryId
+    entryId: data.nextEntryId
   };
 
   data.nextEntryId = data.nextEntryId + 1;
