@@ -1,0 +1,10 @@
+header {
+  background-color: rgb(85, 42, 126);
+  color: white;
+}
+
+h1,
+h2 {
+  font-family: "Proza Libre", sans-serif;
+  font-weight: 400;
+}
