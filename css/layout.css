@@ -27,6 +27,25 @@
   justify-content: right;
 }
 
+.nav,
+.entries-nav {
+  display: flex;
+  align-items: center;
+}
+
+.entries-nav {
+  justify-content: space-between;
+}
+
+#no-entries {
+  display: flex;
+  justify-content: center;
+}
+
+h3 {
+  margin-left: 1.5rem;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     max-width: 900px;

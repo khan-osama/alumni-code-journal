@@ -22,7 +22,10 @@
     <div class="container">
       <div class="row">
         <div class="column-full">
-          <h2>Code Journal</h2>
+          <div class="nav">
+            <h2 id="home">Code Journal</h2>
+            <h3 id="entry-head">Entries</h3>
+          </div>
         </div>
       </div>
     </div>
@@ -63,6 +66,23 @@
             </div>
           </div>
         </form>
+      </div>
+      <div class="hidden" data-view="entries">
+        <div class="row">
+          <div class="column-full">
+            <div class="entries-nav">
+              <h1>Entries</h1>
+              <a href="index.html">NEW</a>
+            </div>
+          </div>
+        </div>
+        <div id="no-entries-row" class="row hidden">
+          <div id="no-entries" class="column-full">
+            <p>No entries have been recorded.</p>
+          </div>
+        </div>
+        <ul>
+        </ul>
       </div>
     </div>
   </main>
