@@ -1,5 +1,6 @@
 body {
   background-color: rgb(241, 241, 241);
+  font-family: "Proza Libre", sans-serif;
 }
 
 header {
@@ -9,34 +10,36 @@ header {
 
 h1,
 label {
-  font-family: "Proza Libre", sans-serif;
   font-weight: bold;
-}
-
-h2,
-p,
-#submit {
-  font-family: "Proza Libre", sans-serif;
-  font-weight: 400;
 }
 
 label {
   margin-bottom: 1rem;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 2rem;
+}
+
+h3,
+#submit {
+  cursor: pointer;
+}
+
+#home,
+#entry-head {
+  font-weight: 400;
+}
+
 .form-inputs {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
-}
-
-#title,
-#url {
-  padding: 10px;
-}
-
-#notes {
-  margin-top: 1rem;
 }
 
 .user-text {
@@ -48,7 +51,8 @@ label {
   border: 2px solid rgb(85, 42, 126);
 }
 
-#submit {
+#submit,
+a {
   background-color: rgb(101, 52, 148);
   color: white;
   border-radius: 4px;
@@ -57,11 +61,16 @@ label {
   margin-bottom: 2rem;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+#title,
+#url {
+  padding: 10px;
 }
 
-li {
-  margin-bottom: 2rem;
+#notes {
+  margin-top: 1rem;
+}
+
+a {
+  text-decoration: none;
+  margin-bottom: 0;
 }

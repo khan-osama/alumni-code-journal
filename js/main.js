@@ -3,10 +3,31 @@
 var imgURL = document.querySelector('#url');
 var img = document.querySelector('img');
 var entryForm = document.querySelector('#entry-form');
-// var ulElement = document.querySelector('ul');
+var ulElement = document.querySelector('ul');
+var entriesNav = document.querySelector('#entry-head');
+var divForm = document.querySelector("div [data-view='entry-form'");
+var divEntries = document.querySelector("div [data-view='entries'");
+var newEntry = document.querySelector('a');
+
+if (data.view === 'entries') {
+  divEntries.removeAttribute('class');
+  divForm.className = 'hidden';
+}
 
 imgURL.addEventListener('input', function () {
   img.setAttribute('src', imgURL.value);
+});
+
+entriesNav.addEventListener('click', function () {
+  divEntries.removeAttribute('class');
+  divForm.className = 'hidden';
+  data.view = 'entries';
+});
+
+newEntry.addEventListener('click', function () {
+  divEntries.setAttribute('class', 'hidden');
+  divForm.removeAttribute('class');
+  data.view = 'entry-form';
 });
 
 entryForm.addEventListener('submit', function (event) {
@@ -24,34 +45,45 @@ entryForm.addEventListener('submit', function (event) {
 
   img.setAttribute('src', 'images/placeholder-image-square.jpg');
   entryForm.reset();
+
+  createJournalEntry(data.entries[data.entries.length - 1]);
+  divEntries.removeAttribute('class');
+  divForm.className = 'hidden';
+  data.view = 'entries';
 });
 
-// function createJournalEntry() {
-//   var listElement = document.createElement('li');
-//   var divRow = document.createElement('div');
-//   var imgEntry = document.createElement('img');
-//   var divCol = document.createElement('div');
-//   var divInputs = document.createElement('div');
-//   var titleEntry = document.createElement('h2');
-//   var notesEntry = document.createElement('p');
+window.addEventListener('DOMContentLoaded', function () {
+  for (var i = 0; i < data.entries.length; i++) {
+    createJournalEntry(data.entries[i]);
+  }
+});
 
-//   divRow.setAttribute('class', 'row');
-//   imgEntry.setAttribute('class', 'column-half');
-//   imgEntry.setAttribute('src', data.entries[0].photoURL);
-//   divCol.setAttribute('class', 'column-half');
-//   divInputs.setAttribute('class', 'form-inputs');
-//   titleEntry.setAttribute('class', 'title');
+function createJournalEntry(entry) {
+  var listElement = document.createElement('li');
+  var divRow = document.createElement('div');
+  var imgEntry = document.createElement('img');
+  var divCol = document.createElement('div');
+  var divInputs = document.createElement('div');
+  var titleEntry = document.createElement('h2');
+  var notesEntry = document.createElement('p');
 
-//   titleEntry.textContent = data.entries[0].title;
-//   notesEntry.textContent = data.entries[0].notes;
+  divRow.setAttribute('class', 'row');
+  imgEntry.setAttribute('class', 'column-half');
+  imgEntry.setAttribute('src', entry.photoURL);
+  divCol.setAttribute('class', 'column-half');
+  divInputs.setAttribute('class', 'form-inputs');
+  titleEntry.setAttribute('class', 'title');
 
-//   ulElement.appendChild(listElement);
-//   listElement.appendChild(divRow);
-//   divRow.appendChild(imgEntry);
-//   divRow.appendChild(divCol);
-//   divCol.appendChild(divInputs);
-//   divInputs.appendChild(titleEntry);
-//   divInputs.appendChild(notesEntry);
+  titleEntry.textContent = entry.title;
+  notesEntry.textContent = entry.notes;
 
-//   return listElement;
-// }
+  ulElement.appendChild(listElement);
+  listElement.appendChild(divRow);
+  divRow.appendChild(imgEntry);
+  divRow.appendChild(divCol);
+  divCol.appendChild(divInputs);
+  divInputs.appendChild(titleEntry);
+  divInputs.appendChild(notesEntry);
+
+  return listElement;
+}
