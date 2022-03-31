@@ -8,10 +8,15 @@ var entriesNav = document.querySelector('#entry-head');
 var divForm = document.querySelector("div [data-view='entry-form'");
 var divEntries = document.querySelector("div [data-view='entries'");
 var newEntry = document.querySelector('a');
+var noEntriesDiv = document.querySelector('#no-entries-row');
 
 if (data.view === 'entries') {
   divEntries.removeAttribute('class');
   divForm.className = 'hidden';
+}
+
+if (data.entries.length === 0) {
+  noEntriesDiv.className = 'row';
 }
 
 imgURL.addEventListener('input', function () {
@@ -50,6 +55,7 @@ entryForm.addEventListener('submit', function (event) {
   divEntries.removeAttribute('class');
   divForm.className = 'hidden';
   data.view = 'entries';
+  noEntriesDiv.className = 'row hidden';
 });
 
 window.addEventListener('DOMContentLoaded', function () {
