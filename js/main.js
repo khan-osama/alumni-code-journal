@@ -15,6 +15,7 @@ var entryNotes = document.querySelector('#note');
 var deleteButton = document.querySelector('.delete');
 var modal = document.querySelector('.modal-container');
 var cancelButton = document.querySelector('#cancel');
+var confirmButton = document.querySelector('#confirm');
 
 if (data.view === 'entries') {
   divEntries.removeAttribute('class');
@@ -148,4 +149,17 @@ deleteButton.addEventListener('click', function () {
 
 cancelButton.addEventListener('click', function () {
   modal.className = 'hidden';
+});
+
+confirmButton.addEventListener('click', function () {
+  var entryLi = document.querySelectorAll('li');
+  var editingEntry = entryLi[data.editing.entryId - 1];
+
+  editingEntry.remove();
+  data.entries.splice(data.editing.entryId - 1, 1);
+  modal.className = 'hidden';
+
+  divEntries.removeAttribute('class');
+  divForm.className = 'hidden';
+  data.view = 'entries';
 });
