@@ -119,7 +119,7 @@ function createJournalEntry(entry) {
   divCol.setAttribute('class', 'column-half');
   divInputs.setAttribute('class', 'form-inputs');
   titleEntry.setAttribute('class', 'title');
-  editIcon.setAttribute('class', 'fa-solid fa-pen');
+  editIcon.setAttribute('class', 'fa-solid fa-pen edit-color');
   divEntriesHead.setAttribute('class', 'entries-head');
 
   titleEntry.textContent = entry.title;
