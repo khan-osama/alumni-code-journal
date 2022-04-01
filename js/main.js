@@ -12,6 +12,10 @@ var noEntriesDiv = document.querySelector('#no-entries-row');
 var entryTitle = document.querySelector('#title');
 var entryURL = document.querySelector('#url');
 var entryNotes = document.querySelector('#note');
+var deleteButton = document.querySelector('.delete');
+var modal = document.querySelector('.modal-container');
+var cancelButton = document.querySelector('#cancel');
+var confirmButton = document.querySelector('#confirm');
 
 if (data.view === 'entries') {
   divEntries.removeAttribute('class');
@@ -86,6 +90,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 ulElement.addEventListener('click', function (event) {
   var editIcon = document.querySelectorAll('i');
+  deleteButton.className = 'delete';
   for (var i = 0; i < editIcon.length; i++) {
     if (event.target === editIcon[i]) {
       divEntries.setAttribute('class', 'hidden');
@@ -119,7 +124,7 @@ function createJournalEntry(entry) {
   divCol.setAttribute('class', 'column-half');
   divInputs.setAttribute('class', 'form-inputs');
   titleEntry.setAttribute('class', 'title');
-  editIcon.setAttribute('class', 'fa-solid fa-pen edit-color');
+  editIcon.setAttribute('class', 'fa-solid fa-pen edit-icon');
   divEntriesHead.setAttribute('class', 'entries-head');
 
   titleEntry.textContent = entry.title;
@@ -137,3 +142,24 @@ function createJournalEntry(entry) {
 
   return listElement;
 }
+
+deleteButton.addEventListener('click', function () {
+  modal.className = 'modal-container';
+});
+
+cancelButton.addEventListener('click', function () {
+  modal.className = 'hidden';
+});
+
+confirmButton.addEventListener('click', function () {
+  var entryLi = document.querySelectorAll('li');
+  var editingEntry = entryLi[data.editing.entryId - 1];
+
+  editingEntry.remove();
+  data.entries.splice(data.editing.entryId - 1, 1);
+  modal.className = 'hidden';
+
+  divEntries.removeAttribute('class');
+  divForm.className = 'hidden';
+  data.view = 'entries';
+});
