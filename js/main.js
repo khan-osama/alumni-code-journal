@@ -65,11 +65,15 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 ulElement.addEventListener('click', function (event) {
-  var editIcon = document.querySelector('i');
-  if (event.target === editIcon) {
-    divEntries.setAttribute('class', 'hidden');
-    divForm.removeAttribute('class');
-    data.view = 'entry-form';
+  var editIcon = document.querySelectorAll('i');
+  for (var i = 0; i < editIcon.length; i++) {
+    if (event.target === editIcon[i]) {
+      divEntries.setAttribute('class', 'hidden');
+      divForm.removeAttribute('class');
+      data.view = 'entry-form';
+
+      data.editing = data.entries[i];
+    }
   }
 });
 
