@@ -29,7 +29,9 @@ li {
 h3,
 #submit,
 .edit-icon,
-.delete {
+.delete,
+#cancel,
+#confirm {
   cursor: pointer;
 }
 
@@ -72,6 +74,24 @@ a {
   margin-top: 1rem;
 }
 
+#confirm,
+#cancel {
+  font-size: 18px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+}
+
+#confirm {
+  background-color: rgb(255, 40, 40);
+  color: white;
+}
+
+#cancel {
+  background-color: rgb(150, 150, 150);
+  color: rgb(0, 0, 0);
+}
+
 a {
   text-decoration: none;
   margin-bottom: 0;
@@ -87,5 +107,22 @@ a {
   color: red;
   text-decoration: underline;
   margin-bottom: 2rem;
+  margin-top: 0;
   padding-left: 0;
+  font-size: 14px;
+}
+
+.modal {
+  background-color: white;
+  width: 450px;
+  height: 200px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+h2 {
+  font-size: 20px;
 }

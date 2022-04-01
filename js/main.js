@@ -13,6 +13,7 @@ var entryTitle = document.querySelector('#title');
 var entryURL = document.querySelector('#url');
 var entryNotes = document.querySelector('#note');
 var deleteButton = document.querySelector('.delete');
+var modal = document.querySelector('.modal-container');
 
 if (data.view === 'entries') {
   divEntries.removeAttribute('class');
@@ -63,7 +64,6 @@ entryForm.addEventListener('submit', function (event) {
     editedImg.src = userInputsObj.photoURL;
     editedHeader.textContent = userInputsObj.title;
     editedPara.textContent = userInputsObj.notes;
-    deleteButton.className = 'invisible';
 
   } else {
     data.nextEntryId = data.nextEntryId + 1;
@@ -140,3 +140,7 @@ function createJournalEntry(entry) {
 
   return listElement;
 }
+
+deleteButton.addEventListener('click', function () {
+  modal.className = 'modal-container';
+});
