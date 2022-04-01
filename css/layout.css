@@ -2,6 +2,10 @@
   display: none !important;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .container {
   max-width: 575px;
   margin: 0 auto;
@@ -19,13 +23,13 @@
 }
 
 .title,
-.fa-pen {
+.edit-icon {
   margin-top: 1.5rem;
 }
 
 .submit {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
 }
 
 .nav,

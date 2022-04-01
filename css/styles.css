@@ -28,7 +28,8 @@ li {
 
 h3,
 #submit,
-.fa-pen {
+.edit-icon,
+.delete {
   cursor: pointer;
 }
 
@@ -76,7 +77,15 @@ a {
   margin-bottom: 0;
 }
 
-.fa-pen {
+.edit-icon {
   color: rgb(101, 52, 148);
   font-size: 24px;
+}
+
+.delete {
+  border: none;
+  color: red;
+  text-decoration: underline;
+  margin-bottom: 2rem;
+  padding-left: 0;
 }

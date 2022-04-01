@@ -12,6 +12,7 @@ var noEntriesDiv = document.querySelector('#no-entries-row');
 var entryTitle = document.querySelector('#title');
 var entryURL = document.querySelector('#url');
 var entryNotes = document.querySelector('#note');
+var deleteButton = document.querySelector('.delete');
 
 if (data.view === 'entries') {
   divEntries.removeAttribute('class');
@@ -62,6 +63,7 @@ entryForm.addEventListener('submit', function (event) {
     editedImg.src = userInputsObj.photoURL;
     editedHeader.textContent = userInputsObj.title;
     editedPara.textContent = userInputsObj.notes;
+    deleteButton.className = 'invisible';
 
   } else {
     data.nextEntryId = data.nextEntryId + 1;
@@ -86,6 +88,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 ulElement.addEventListener('click', function (event) {
   var editIcon = document.querySelectorAll('i');
+  deleteButton.className = 'delete';
   for (var i = 0; i < editIcon.length; i++) {
     if (event.target === editIcon[i]) {
       divEntries.setAttribute('class', 'hidden');
@@ -119,7 +122,7 @@ function createJournalEntry(entry) {
   divCol.setAttribute('class', 'column-half');
   divInputs.setAttribute('class', 'form-inputs');
   titleEntry.setAttribute('class', 'title');
-  editIcon.setAttribute('class', 'fa-solid fa-pen');
+  editIcon.setAttribute('class', 'fa-solid fa-pen edit-icon');
   divEntriesHead.setAttribute('class', 'entries-head');
 
   titleEntry.textContent = entry.title;
