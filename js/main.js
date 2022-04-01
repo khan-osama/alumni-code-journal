@@ -14,6 +14,7 @@ var entryURL = document.querySelector('#url');
 var entryNotes = document.querySelector('#note');
 var deleteButton = document.querySelector('.delete');
 var modal = document.querySelector('.modal-container');
+var cancelButton = document.querySelector('#cancel');
 
 if (data.view === 'entries') {
   divEntries.removeAttribute('class');
@@ -143,4 +144,8 @@ function createJournalEntry(entry) {
 
 deleteButton.addEventListener('click', function () {
   modal.className = 'modal-container';
+});
+
+cancelButton.addEventListener('click', function () {
+  modal.className = 'hidden';
 });
