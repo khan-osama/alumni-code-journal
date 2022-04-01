@@ -36,6 +36,7 @@ newEntry.addEventListener('click', function () {
   divEntries.setAttribute('class', 'hidden');
   divForm.removeAttribute('class');
   data.view = 'entry-form';
+  data.editing = null;
 });
 
 entryForm.addEventListener('submit', function (event) {
@@ -48,22 +49,33 @@ entryForm.addEventListener('submit', function (event) {
     entryId: data.nextEntryId
   };
 
-  data.nextEntryId = data.nextEntryId + 1;
-  data.entries.push(userInputsObj);
+  if (data.editing) {
+    userInputsObj.entryId = data.editing.entryId;
+    data.entries[data.editing.entryId - 1] = userInputsObj;
+
+    var editingIndex = data.editing.entryId - 1;
+    var entryLi = document.querySelectorAll('li');
+    var editedImg = entryLi[editingIndex].querySelector('img');
+    var editedHeader = entryLi[editingIndex].querySelector('h2');
+    var editedPara = entryLi[editingIndex].querySelector('p');
+
+    editedImg.src = userInputsObj.photoURL;
+    editedHeader.textContent = userInputsObj.title;
+    editedPara.textContent = userInputsObj.notes;
+
+  } else {
+    data.nextEntryId = data.nextEntryId + 1;
+    data.entries.push(userInputsObj);
+    createJournalEntry(data.entries[data.entries.length - 1]);
+  }
 
   img.setAttribute('src', 'images/placeholder-image-square.jpg');
   entryForm.reset();
-
-  createJournalEntry(data.entries[data.entries.length - 1]);
+  data.editing = null;
   divEntries.removeAttribute('class');
   divForm.className = 'hidden';
   data.view = 'entries';
   noEntriesDiv.className = 'row hidden';
-
-  if (data.editing) {
-    userInputsObj.entryId = data.editing.entryId;
-    data.entries[data.editing.entryId - 1] = userInputsObj;
-  }
 });
 
 window.addEventListener('DOMContentLoaded', function () {
