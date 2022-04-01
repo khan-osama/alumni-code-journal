@@ -64,6 +64,15 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+ulElement.addEventListener('click', function (event) {
+  var editIcon = document.querySelector('i');
+  if (event.target === editIcon) {
+    divEntries.setAttribute('class', 'hidden');
+    divForm.removeAttribute('class');
+    data.view = 'entry-form';
+  }
+});
+
 function createJournalEntry(entry) {
   var listElement = document.createElement('li');
   var divRow = document.createElement('div');
