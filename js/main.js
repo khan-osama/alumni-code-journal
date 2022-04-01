@@ -72,6 +72,8 @@ function createJournalEntry(entry) {
   var divInputs = document.createElement('div');
   var titleEntry = document.createElement('h2');
   var notesEntry = document.createElement('p');
+  var editIcon = document.createElement('i');
+  var divEntriesHead = document.createElement('div');
 
   divRow.setAttribute('class', 'row');
   imgEntry.setAttribute('class', 'column-half');
@@ -79,6 +81,8 @@ function createJournalEntry(entry) {
   divCol.setAttribute('class', 'column-half');
   divInputs.setAttribute('class', 'form-inputs');
   titleEntry.setAttribute('class', 'title');
+  editIcon.setAttribute('class', 'fa-solid fa-pen');
+  divEntriesHead.setAttribute('class', 'entries-head');
 
   titleEntry.textContent = entry.title;
   notesEntry.textContent = entry.notes;
@@ -88,7 +92,9 @@ function createJournalEntry(entry) {
   divRow.appendChild(imgEntry);
   divRow.appendChild(divCol);
   divCol.appendChild(divInputs);
-  divInputs.appendChild(titleEntry);
+  divInputs.appendChild(divEntriesHead);
+  divEntriesHead.appendChild(titleEntry);
+  divEntriesHead.appendChild(editIcon);
   divInputs.appendChild(notesEntry);
 
   return listElement;

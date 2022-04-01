@@ -18,7 +18,8 @@
   width: 100%;
 }
 
-.title {
+.title,
+.fa-pen {
   margin-top: 1.5rem;
 }
 
@@ -42,6 +43,11 @@
   justify-content: center;
 }
 
+.entries-head {
+  display: flex;
+  justify-content: space-between;
+}
+
 h3 {
   margin-left: 1.5rem;
 }
@@ -60,7 +66,8 @@ h3 {
     width: 50%;
   }
 
-  .title {
+  .title,
+  .fa-pen {
     margin-top: 0;
   }
 }
